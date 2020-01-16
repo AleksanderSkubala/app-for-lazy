@@ -22,7 +22,7 @@ function DataTable() {
       </thead>
       <tbody>
         <tr>
-          <th>v=</th>
+          <th>v</th>
           <th>
             <input />
           </th>
