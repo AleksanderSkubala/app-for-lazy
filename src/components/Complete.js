@@ -3,14 +3,10 @@ import { connect } from 'react-redux';
 import { formulas } from '../redux/actions';
 import { TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { fade, withStyles } from '@material-ui/core/styles';
+import { mainList } from '../mainList';
 
-const mainList = [
-  {name: 'prędkość w ruchu po okręgu'},
-  {name: 'prędkość Żyda'},
-];
-
-/*const styles = makeStyles(theme => ({
+const styles = theme => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -25,32 +21,37 @@ const mainList = [
       width: 'auto',
     },
   },
-}));*/
+});
 
 class Complete extends React.Component {
   constructor(props) {
     super(props);
     this.setFormula = this.setFormula.bind(this);
-    console.log(props);
   }
 
-  setFormula = (e) => {
-    this.props.dispatch(formulas(e.target.value));
+  setFormula = (e, value) => {
+    console.log(value);
+    this.props.dispatch(formulas(value));
   };
 
   render(){
     return (
       <Autocomplete
         id="combo-box-demo"
+        autoHighlight={true}
         options={mainList}
         getOptionLabel={option => option.name}
         style={{width: 300}}
         onInputChange={this.setFormula}
         renderInput={params => (
-          <TextField {...params} variant="outlined" fullWidth onChange={this.setFormula}/>
+          <TextField
+            {...params}
+            variant="outlined"
+            fullWidth
+          />
         )}
       />
   );}
 }
 
-export default connect(formulas)(Complete);
+export default connect(formulas)( withStyles(styles)(Complete) );

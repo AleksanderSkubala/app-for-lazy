@@ -1,6 +1,5 @@
 import React  from 'react';
 import { connect } from "react-redux";
-import { formulas } from "../redux/actions";
 import { withStyles } from '@material-ui/styles';
 import {
   Typography,
@@ -13,7 +12,7 @@ import {
   Box
 } from '@material-ui/core';
 
-const styles = {
+const styles = theme => ({
   box: {
     margin: '20px 0 0 20px'
   },
@@ -26,7 +25,7 @@ const styles = {
       paddingLeft: 0,
     }
   },
-};
+});
 
 function createData(symbol, value) {
   return { symbol, value };

@@ -4,10 +4,7 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  // InputBase,
-  TextField
 } from '@material-ui/core';
-// import Autocomplete from '@material-ui/lab/Autocomplete';
 import { fade, makeStyles } from '@material-ui/core/styles';
 // import SearchIcon from '@material-ui/icons/Search';
 
