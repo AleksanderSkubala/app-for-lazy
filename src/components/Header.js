@@ -1,10 +1,15 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
+import Complete from './Complete';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  // InputBase,
+  TextField
+} from '@material-ui/core';
+// import Autocomplete from '@material-ui/lab/Autocomplete';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -69,7 +74,7 @@ const classes = useStyles();
         <Typography className={classes.title} variant="h5" noWrap>
           Lazy App
         </Typography>
-        <div className={classes.search}>
+        {/* <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
           </div>
@@ -81,7 +86,8 @@ const classes = useStyles();
             }}
             inputProps={{ 'aria-label': 'search' }}
           />
-        </div>
+        </div> */}
+        <Complete/>
       </Toolbar>
     </AppBar>
   );
