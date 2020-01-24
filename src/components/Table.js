@@ -11,6 +11,7 @@ import {
   TableRow,
   Box
 } from '@material-ui/core';
+import { mainList } from '../mainList';
 
 const styles = theme => ({
   box: {
@@ -20,25 +21,17 @@ const styles = theme => ({
     padding: '10px 0'
   },
   table: {
-    width: 250,
+    width: 400,
     '& th': {
       paddingLeft: 0,
     }
   },
 });
 
-function createData(symbol, value) {
-  return { symbol, value };
-}
-
-const rows = [
-  createData('s=', 123),
-  createData('t=', 45)
-];
-
 class DataTable extends React.Component {
   render() {
   const { classes } = this.props;
+  console.log(this.props);
   return (
   <Box className={classes.box}>
     <Typography className={classes.title} variant="h4">Data Table</Typography>
@@ -51,24 +44,23 @@ class DataTable extends React.Component {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.symbol} border={1}>
-              <TableCell component="th" scope="row">
-                {row.symbol}
-              </TableCell>
-              <TableCell align="right">{row.value}</TableCell>
-            </TableRow>
-          ))}
+        {this.props.item ? (
+          <TableRow key={this.props.item.name} border={1}>
+            <TableCell component="th" scope="row">
+              {this.props.item.name}
+            </TableCell>
+            <TableCell align="right">{this.props.item.formula}</TableCell>
+          </TableRow>
+        ) : null}
         </TableBody>
       </Table>
     </TableContainer>
-    {this.props.formula}
   </Box>
   );}
 }
 
 const mapStateToProps = (state) => ({
-  formula: state.formula,
+  item: state.formula,
 })
 
 export default connect(mapStateToProps)( withStyles(styles)(DataTable) );

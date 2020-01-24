@@ -30,8 +30,11 @@ class Complete extends React.Component {
   }
 
   setFormula = (e, value) => {
-    console.log(value);
-    this.props.dispatch(formulas(value));
+    const item = mainList.find(el => {
+      return el.name === value;
+    });
+    console.log(item);
+    this.props.dispatch(formulas(item));
   };
 
   render(){
