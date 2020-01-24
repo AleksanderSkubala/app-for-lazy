@@ -33,7 +33,8 @@ class Complete extends React.Component {
     const item = mainList.find(el => {
       return el.name === value;
     });
-    console.log(item);
+    console.log(item, item.formula.match(/[a-z]/g));
+    //str.match(/[a-z]/i)
     this.props.dispatch(formulas(item));
   };
 

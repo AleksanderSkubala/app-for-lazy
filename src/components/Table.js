@@ -11,7 +11,6 @@ import {
   TableRow,
   Box
 } from '@material-ui/core';
-import { mainList } from '../mainList';
 
 const styles = theme => ({
   box: {
@@ -31,10 +30,12 @@ const styles = theme => ({
 class DataTable extends React.Component {
   render() {
   const { classes } = this.props;
-  console.log(this.props);
+
   return (
   <Box className={classes.box}>
-    <Typography className={classes.title} variant="h4">Data Table</Typography>
+    {this.props.item ? (
+    <>
+    <Typography className={classes.title} variant="h4">{this.props.item.name}</Typography>
     <TableContainer>
       <Table className={classes.table}>
         <TableHead>
@@ -44,17 +45,21 @@ class DataTable extends React.Component {
           </TableRow>
         </TableHead>
         <TableBody>
-        {this.props.item ? (
-          <TableRow key={this.props.item.name} border={1}>
-            <TableCell component="th" scope="row">
-              {this.props.item.name}
-            </TableCell>
-            <TableCell align="right">{this.props.item.formula}</TableCell>
-          </TableRow>
-        ) : null}
-        </TableBody>
+          {this.props.item.formula.match(/[a-z]/g).forEach(symbol => (
+            <TableRow key={this.props.item.name} border={1}>
+              <TableCell component="th" scope="row">
+                {this.props.item.name}
+              </TableCell>
+              <TableCell align="right">{this.props.item.formula}</TableCell>
+            </TableRow>
+          ))}
+      </TableBody>
       </Table>
     </TableContainer>
+    </>
+    ) : (
+      <Typography className={classes.title} variant="h4">Wyszukaj wzór</Typography>
+    )}
   </Box>
   );}
 }
