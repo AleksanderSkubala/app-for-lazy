@@ -9,6 +9,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TextField,
   Box
 } from '@material-ui/core';
 
@@ -18,6 +19,9 @@ const styles = theme => ({
   },
   title: {
     padding: '10px 0'
+  },
+  formula: {
+    fontStyle: 'italic'
   },
   table: {
     width: 400,
@@ -36,6 +40,7 @@ class DataTable extends React.Component {
     {this.props.item ? (
     <>
     <Typography className={classes.title} variant="h4">{this.props.item.name}</Typography>
+    <Typography className={classes.formula} variant="h6">{this.props.item.formula}</Typography>
     <TableContainer>
       <Table className={classes.table}>
         <TableHead>
@@ -45,15 +50,31 @@ class DataTable extends React.Component {
           </TableRow>
         </TableHead>
         <TableBody>
-          {this.props.item.formula.match(/[a-z]/g).forEach(symbol => (
-            <TableRow key={this.props.item.name} border={1}>
+          {this.props.item.formula.split("=")[1].match(/[a-z]/g).map(symbol => (
+            <TableRow key={symbol} border={1}>
               <TableCell component="th" scope="row">
-                {this.props.item.name}
+                {symbol}
               </TableCell>
-              <TableCell align="right">{this.props.item.formula}</TableCell>
+              <TableCell align="right">
+                <TextField
+                  label={`Podaj ${symbol}`}
+                  variant="outlined"
+                  size="small"
+                />
+              </TableCell>
             </TableRow>
           ))}
-      </TableBody>
+          {this.props.item.formula.split("=")[0].match(/[a-z]/g).map(symbol => (
+            <TableRow key={symbol} border={1}>
+              <TableCell component="th" scope="row">
+                {symbol}
+              </TableCell>
+              <TableCell align="right">
+                <Typography variant="h6">{symbol}</Typography>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
       </Table>
     </TableContainer>
     </>
