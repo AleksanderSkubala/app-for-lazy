@@ -24,10 +24,10 @@ const styles = theme => ({
     fontStyle: 'italic'
   },
   table: {
-    width: 400,
+    width: 350,
     '& th': {
       paddingLeft: 0,
-    }
+    },
   },
 });
 
@@ -57,6 +57,7 @@ class DataTable extends React.Component {
               </TableCell>
               <TableCell align="right">
                 <TextField
+                  id={symbol}
                   label={`Podaj ${symbol}`}
                   variant="outlined"
                   size="small"
@@ -70,7 +71,7 @@ class DataTable extends React.Component {
                 {symbol}
               </TableCell>
               <TableCell align="right">
-                <Typography variant="h6">{symbol}</Typography>
+                {symbol}
               </TableCell>
             </TableRow>
           ))}
