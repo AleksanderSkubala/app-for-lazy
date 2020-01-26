@@ -12,6 +12,7 @@ import {
   TextField,
   Box
 } from '@material-ui/core';
+import { solver, merge } from "../solver"
 
 const styles = theme => ({
   box: {
@@ -32,6 +33,22 @@ const styles = theme => ({
 });
 
 class DataTable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    }
+    this.refreshData = this.refreshData.bind(this);
+  }
+
+  refreshData(symbol, value) {
+    const arr = solver(this.props.item.formula, symbol, value);
+    console.log(arr);
+    const merged = merge(arr, this.state.data);
+    console.log(merged);
+    this.setState({ data: merged });
+  }
+
   render() {
   const { classes } = this.props;
 
@@ -61,6 +78,7 @@ class DataTable extends React.Component {
                   label={`Podaj ${symbol}`}
                   variant="outlined"
                   size="small"
+                  onChange={(e) => this.refreshData(symbol, e.target.value)}
                 />
               </TableCell>
             </TableRow>
@@ -71,7 +89,7 @@ class DataTable extends React.Component {
                 {symbol}
               </TableCell>
               <TableCell align="right">
-                {symbol}
+                {eval(this.state.data.join(""))}
               </TableCell>
             </TableRow>
           ))}
