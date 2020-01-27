@@ -15,7 +15,7 @@ export const merge = (arr1, arr2) => {
       if(arr2.length>0) {
         final.push(arr2[index])
       } else {
-        final.push("0")
+        final.push("0");
       }
     } else {
       final.push(item)
@@ -23,8 +23,3 @@ export const merge = (arr1, arr2) => {
   })
   return final
 }
-
-// const solve = solver("v=s/t", "s", 10)
-// const solve2 = solver("v=s/t", "t", 2)
-// const finalFromula = merge(solve,solve2).join("")
-// console.log(eval(finalFromula))

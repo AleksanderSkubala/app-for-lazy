@@ -10,9 +10,12 @@ import {
   TableHead,
   TableRow,
   TextField,
-  Box
+  Box,
+  Button
 } from '@material-ui/core';
-import { solver, merge } from "../solver"
+import { solver, merge } from "../solver";
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 
 const styles = theme => ({
   box: {
@@ -22,7 +25,7 @@ const styles = theme => ({
     padding: '10px 0'
   },
   formula: {
-    fontStyle: 'italic'
+    padding: '20px 0',
   },
   table: {
     width: 350,
@@ -30,6 +33,13 @@ const styles = theme => ({
       paddingLeft: 0,
     },
   },
+  btn: {
+    color: 'white',
+    backgroundColor: '#009432',
+    '&:hover': {
+      backgroundColor: '#007210',
+    },
+  }
 });
 
 class DataTable extends React.Component {
@@ -37,16 +47,18 @@ class DataTable extends React.Component {
     super(props);
     this.state = {
       data: [],
+      dataShowed: false,
     }
     this.refreshData = this.refreshData.bind(this);
   }
 
   refreshData(symbol, value) {
-    const arr = solver(this.props.item.formula, symbol, value);
-    console.log(arr);
-    const merged = merge(arr, this.state.data);
-    console.log(merged);
-    this.setState({ data: merged });
+    this.setState({dataShowed: false});
+    if(/^[0-9]*$/g.test(value) && value) {
+      const arr = solver(this.props.item.formula, symbol, value);
+      const merged = merge(arr, this.state.data);
+      this.setState({ data: merged });
+    }
   }
 
   render() {
@@ -57,7 +69,9 @@ class DataTable extends React.Component {
     {this.props.item ? (
     <>
     <Typography className={classes.title} variant="h4">{this.props.item.name}</Typography>
-    <Typography className={classes.formula} variant="h6">{this.props.item.formula}</Typography>
+    <Typography className={classes.formula} variant="h6">
+      <InlineMath math={this.props.item.latex} />
+    </Typography>
     <TableContainer>
       <Table className={classes.table}>
         <TableHead>
@@ -83,13 +97,22 @@ class DataTable extends React.Component {
               </TableCell>
             </TableRow>
           ))}
+          <TableRow>
+            <TableCell colSpan={2} align="center">
+              <Button
+                className={classes.btn}
+                size="large"
+                onClick={() => {this.setState({dataShowed: true})}}
+              >OBLICZ</Button>
+            </TableCell>
+          </TableRow>
           {this.props.item.formula.split("=")[0].match(/[a-z]/g).map(symbol => (
             <TableRow key={symbol} border={1}>
               <TableCell component="th" scope="row">
                 {symbol}
               </TableCell>
               <TableCell align="right">
-                {eval(this.state.data.join(""))}
+                {this.state.dataShowed ? eval(this.state.data.join("")) : "0"}
               </TableCell>
             </TableRow>
           ))}
