@@ -21,25 +21,11 @@ const styles = theme => ({
       width: 'auto',
     },
   },
-  popper: {
-    // transition: theme.transitions.create('width'),
-    width: 250,
-  },
   input: {
-    minWidth: 200,
+    minWidth: 300,
     '& input': {
       padding: theme.spacing(1, 1, 1, 7),
       width: '100%',
-      [theme.breakpoints.up('sm')]: {
-        transition: theme.transitions.create('width'),
-        width: 200,
-        '&:focus': {
-          width: 250,
-        },
-        '&:hover': {
-          width: 250,
-        },
-      },
     }
   },
 });
@@ -63,12 +49,9 @@ class Complete extends React.Component {
     return (
       <Autocomplete
         id="combo-box-search"
-        classes={{
-          root: classes.search,
-          popper: classes.popper,
-        }}
-        fullWidth
+        className={classes.search}
         autoHighlight={true}
+        groupBy={option => option.category}
         options={mainList}
         getOptionLabel={option => option.name}
         onInputChange={this.setFormula}
@@ -76,6 +59,7 @@ class Complete extends React.Component {
           <TextField
             className={classes.input}
             {...params}
+            fullWidth
             variant="outlined"
             size="small"
           />
