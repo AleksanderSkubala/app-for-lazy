@@ -15,7 +15,7 @@ import {
 } from '@material-ui/core';
 import { solver, merge } from "../solver";
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
+import { InlineMath } from 'react-katex';
 
 const styles = theme => ({
   box: {
@@ -26,12 +26,16 @@ const styles = theme => ({
   },
   formula: {
     padding: '20px 0',
+    fontStyle: 'italic',
   },
   table: {
     width: 350,
     '& th': {
       paddingLeft: 0,
     },
+  },
+  input: {
+    width: 120
   },
   btn: {
     color: 'white',
@@ -54,7 +58,8 @@ class DataTable extends React.Component {
 
   refreshData(symbol, value) {
     this.setState({dataShowed: false});
-    if(/^[0-9]*$/g.test(value) && value) {
+    value=value.replace(',', '.');
+    if(/^[0-9(.*)]*$/g.test(value) && value) {
       const arr = solver(this.props.item.formula, symbol, value);
       const merged = merge(arr, this.state.data);
       this.setState({ data: merged });
@@ -68,8 +73,8 @@ class DataTable extends React.Component {
   <Box className={classes.box}>
     {this.props.item ? (
     <>
-    <Typography className={classes.title} variant="h4">{this.props.item.name}</Typography>
-    <Typography className={classes.formula} variant="h6">
+    <Typography className={classes.title} variant="h5">{this.props.item.name}</Typography>
+    <Typography className={classes.formula} variant="h5">
       <InlineMath math={this.props.item.latex} />
     </Typography>
     <TableContainer>
@@ -88,7 +93,8 @@ class DataTable extends React.Component {
               </TableCell>
               <TableCell align="right">
                 <TextField
-                  id={symbol}
+                  // id={symbol}
+                  className={classes.input}
                   label={`Podaj ${symbol}`}
                   variant="outlined"
                   size="small"
