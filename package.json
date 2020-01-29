@@ -1,5 +1,7 @@
 {
   "name": "app-for-lazy",
+  "author": "Aleksander Skubała",
+  "description": "App for my friend that is science student.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

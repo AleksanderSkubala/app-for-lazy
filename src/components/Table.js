@@ -86,7 +86,8 @@ class DataTable extends React.Component {
           </TableRow>
         </TableHead>
         <TableBody>
-          {this.props.item.formula.split("=")[1].match(/[a-z]/g).map(symbol => (
+          {this.props.item.formula.split("=")[1].match(/[a-z]/g).map((symbol, i) =>
+          this.props.item.formula.split("=")[1].match(/[a-z]/g).indexOf(symbol) === i ? (
             <TableRow key={symbol} border={1}>
               <TableCell component="th" scope="row">
                 {symbol}
@@ -102,7 +103,7 @@ class DataTable extends React.Component {
                 />
               </TableCell>
             </TableRow>
-          ))}
+          ) : (<></>) )}
           <TableRow>
             <TableCell colSpan={2} align="center">
               <Button
