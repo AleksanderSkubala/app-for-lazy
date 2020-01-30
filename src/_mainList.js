@@ -1,9 +1,3 @@
-/*export const mainList = [
-  {name: 'prędkość w ruchu po okręgu', formula: 'v=s/t', latex: "v= \\frac s t", category: "Kinematyka"},
-  {name: 'prędkość w ruchu jedn.', formula: 'v=(s/t)*1.23', latex: `a^2 + b^2 = c^2`, category: "Kinematyka"},
-  {name: 'prędkość Żyda', formula: 'v=h*v', latex: `V=h*v`, category: "happy math"},
-];*/
-
 export const mainList = [
   //Kinematyka
   {name: 'prędkość', formula: 'v=r/t', latex: "\\vec{v}=\\frac{\\Delta\\vec{r}}{\\Delta t}", category: "Kinematyka"},
@@ -45,5 +39,28 @@ export const mainList = [
   {name: 'siła sprężystości', formula: 'f=(-(k))*x', latex: "\\vec{F_s}=-k \\cdotp \\vec{x}", category: "Siły: ciężkości, sprężystości i tarcia"},
   {name: 'energia potencjalna sprężystośc', formula: 'e=0.5*k*(x**2)', latex: "E_{pot}=\\frac{1}{2}k \\cdotp x^2", category: "Siły: ciężkości, sprężystości i tarcia"},
   {name: 'siła tarcia kinetycznego', formula: 't=m*f', latex: "T_k=\\mu_k \\cdotp F_N", category: "Siły: ciężkości, sprężystości i tarcia"},
-  {name: 'siła tarcia statycznego', formula: 't=m*F', latex: "T_s \\leqslant \\mu_s \\cdotp F_N", category: "Siły: ciężkości, sprężystości i tarcia"},
+  {name: 'siła tarcia statycznego', formula: 't=m*f', latex: "T_s \\leqslant \\mu_s \\cdotp F_N", category: "Siły: ciężkości, sprężystości i tarcia"},
+  //Optyka
+  {name: 'kąt graniczny', formula: 'a=1/n', latex: "\\sin \\alpha_{gr}=\\frac 1 n", category: "Optyka"},
+  {name: 'zwierciadło kuliste', formula: 'f=r/2', latex: "f=\\frac R 2", category: "Optyka"},
+  //Fizyka współczesna
+  {name: 'równoważność masy-energii', formula: 'e=m*(c**2)', latex: "E=m \\cdot c^2", category: "Fizyka współczesna"},
+  {name: 'energia fotonu (1)', formula: 'e=h*f', latex: "E=h \\cdot f", category: "Fizyka współczesna"},
+  {name: 'energia fotonu (2)', formula: 'e=(h*c)/l', latex: "E=\\frac{h \\cdot c}{\\lambda}", category: "Fizyka współczesna"},
+  {name: "długość fali de Broglie’a", formula: 'l=h/(m*v)', latex: "\\lambda=\\frac{h}{m \\cdotp v}", category: "Fizyka współczesna"},
+  {name: "poziomy energetyczne atomu wodoru", formula: 'e=-((13,6*e*v)/(n**2))', latex: "E_n=-\\frac{13,6eV}{n^2}", category: "Fizyka współczesna"},
+  {name: "prawo Hubble’a", formula: 'v=h*r', latex: "v=H \\cdotp r", category: "Fizyka współczesna"},
+  //Termodynamika
+  {name: "gęstość", formula: 'r=m/v', latex: "\\rho=\\frac m V", category: "Termodynamika"},
+  {name: "ciśnienie", formula: 'p=f/s', latex: "p=\\frac F S", category: "Termodynamika"},
+  {name: "zmiana ciśnienia hydrostatycznego", formula: 'p=r*g*h', latex: "\\Delta p = \\rho \\cdot g \\cdot \\Delta h", category: "Termodynamika"},
+  {name: "I zasada termodynamiki", formula: 'u=q+w', latex: "\\Delta U = Q + W", category: "Termodynamika"},
+  {name: "praca siły parcia", formula: 'w=(-p)*v', latex: "W=-p \\cdotp \\Delta V", category: "Termodynamika"},
+  {name: "ciepło właściwe", formula: 'c=q/(m*t)', latex: "c_w = \\frac{Q}{m \\cdotp \\Delta T}", category: "Termodynamika"},
+  {name: "ciepło molowe", formula: 'c=q/(n*t)', latex: "C = \\frac{Q}{n \\cdotp \\Delta T}", category: "Termodynamika"},
+  {name: "ciepło przemiany fazowej", formula: 'q=m*l', latex: "Q=m \\cdotp L", category: "Termodynamika"},
+  {name: "średnia energia kinetyczna ruchu postępowego cząsteczek", formula: 'e=(1.5*k)*t', latex: "E_{śr}=\\frac{3}{2}k_B \\cdotp T", category: "Termodynamika"},
+  {name: "ciepła molowe gazu doskonałego", formula: 'c=c+r', latex: "C_p=C_V + R", category: "Termodynamika"},
+  {name: "sprawność silnika cieplnego (1)", formula: 'e=w/q', latex: "\\eta = \\frac W Q", category: "Termodynamika"},
+  {name: "sprawność silnika cieplnego (2)", formula: 'e=(q-o)/q', latex: "\\eta = \\frac{Q_1 - Q_2}{Q_1} = \\frac{Q - O}{Q}", category: "Termodynamika"},
 ];

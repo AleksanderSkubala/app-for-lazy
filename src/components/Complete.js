@@ -4,7 +4,7 @@ import { formulas } from '../redux/actions';
 import { TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { fade, withStyles } from '@material-ui/core/styles';
-import { mainList } from '../mainList';
+import { mainList } from '../_mainList';
 
 const styles = theme => ({
   search: {
