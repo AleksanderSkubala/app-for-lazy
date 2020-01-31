@@ -63,4 +63,13 @@ export const mainList = [
   {name: "ciepła molowe gazu doskonałego", formula: 'c=c+r', latex: "C_p=C_V + R", category: "Termodynamika"},
   {name: "sprawność silnika cieplnego (1)", formula: 'e=w/q', latex: "\\eta = \\frac W Q", category: "Termodynamika"},
   {name: "sprawność silnika cieplnego (2)", formula: 'e=(q-o)/q', latex: "\\eta = \\frac{Q_1 - Q_2}{Q_1} = \\frac{Q - O}{Q}", category: "Termodynamika"},
+  //Pole magnetyczne
+  {name: "pole przewodnika prostoliniowego", formula: 'b=(m*n*i)/(2*3.1416*r)', latex: "B=\\frac{\\mu_0 \\mu_r \\cdotp I}{2 \\pi \\cdotp r}=\\frac{\\mu_0 n \\cdotp I}{2 \\pi \\cdotp r}", category: "Pole magnetyczne"},
+  {name: "pole pętli (w jej środku)", formula: 'b=(m*n*i)/(2*r)', latex: "B=\\frac{\\mu_0 \\mu_r \\cdotp I}{2 \\cdotp r}=\\frac{\\mu_0 n \\cdotp I}{2 \\cdotp r}", category: "Pole magnetyczne"},
+  {name: "pole długiego solenoidu (zwojnicy)", formula: 'b=m*n*((n*i)/l)', latex: "B=\\mu_0 \\mu_r \\frac{n \\cdotp I}{l}", category: "Pole magnetyczne"},
+  {name: "SEM indukcji", formula: 'e=-(p/t)', latex: "\\varepsilon-\\frac{\\Delta \\Phi}{\\Delta t}", category: "Pole magnetyczne"},
+  {name: "SEM samoindukcji", formula: 'e=-l*(i/t)', latex: "\\varepsilon-L\\frac{\\Delta I}{\\Delta t}", category: "Pole magnetyczne"},
+  {name: "SEM samoindukcji", formula: 'e=-l*(i/t)', latex: "\\varepsilon-L\\frac{\\Delta I}{\\Delta t}", category: "Pole magnetyczne"},
+  {name: "wartości skuteczne prądu przemiennego (1)", formula: 'u=u/(2**0.5)', latex: "U_{sk}=\\frac{U_{max}}{\\sqrt{2}}", category: "Pole magnetyczne"},
+  {name: "wartości skuteczne prądu przemiennego (2)", formula: 'i=i/(2**0.5)', latex: "I_{sk}=\\frac{I_{max}}{\\sqrt{2}}", category: "Pole magnetyczne"},
 ];
