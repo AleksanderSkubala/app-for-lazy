@@ -72,4 +72,21 @@ export const mainList = [
   {name: "SEM samoindukcji", formula: 'e=-l*(i/t)', latex: "\\varepsilon-L\\frac{\\Delta I}{\\Delta t}", category: "Pole magnetyczne"},
   {name: "wartości skuteczne prądu przemiennego (1)", formula: 'u=u/(2**0.5)', latex: "U_{sk}=\\frac{U_{max}}{\\sqrt{2}}", category: "Pole magnetyczne"},
   {name: "wartości skuteczne prądu przemiennego (2)", formula: 'i=i/(2**0.5)', latex: "I_{sk}=\\frac{I_{max}}{\\sqrt{2}}", category: "Pole magnetyczne"},
+  //Elektrostatyka
+  {name: "prawo Coulomba (1)", formula: 'f=k*((q*o)/(r**2))', latex: "F=k\\frac{q_1 \\cdotp q_2}{r^2}=k\\frac{q \\cdotp o}{r^2}", category: "Elektrostatyka"},
+  {name: "prawo Coulomba (2)", formula: 'k=1/(4*3.1416*e)', latex: "k=\\frac{1}{4\\pi \\cdotp \\varepsilon_0}", category: "Elektrostatyka"},
+  {name: "natężenie pola", formula: 'e=f/q', latex: "\\vec{E}=\\frac{\\vec{F}}{q}", category: "Elektrostatyka"},
+  {name: "napięcie", formula: 'u=w/q', latex: "U=\\frac{W}{q}", category: "Elektrostatyka"},
+  {name: "pole jednorodne", formula: 'u=e*d', latex: "U=E \\cdotp d", category: "Elektrostatyka"},
+  {name: "pojemność kondensatora płaskiego (1)", formula: 'c=q/u', latex: "C=\\frac{Q}{U}", category: "Elektrostatyka"},
+  {name: "pojemność kondensatora płaskiego (2)", formula: 'c=q/u', latex: "C=\\varepsilon_r \\varepsilon_0 \\cdotp \\frac S d=r \\varepsilon \\cdotp \\frac S d", category: "Elektrostatyka"},
+  {name: "energia kondensatora (1)", formula: 'w=(0.5*q)*u', latex: "W=\\frac{1}{2}Q \\cdotp U", category: "Elektrostatyka"},
+  {name: "energia kondensatora (2)", formula: 'w=(0.5*c)*(u**2)', latex: "W=\\frac{1}{2}C \\cdotp U^2", category: "Elektrostatyka"},
+  //Prąd elektryczny
+  {name: "natężenie prądu", formula: 'i=q/t', latex: "I=\\frac{\\Delta Q}{\\Delta t}", category: "Prąd elektryczny"},
+  {name: "moc prądu", formula: 'p=u*i', latex: "P=U \\cdotp I", category: "Prąd elektryczny"},
+  {name: "opór przewodnika", formula: 'r=r*(l/s)', latex: "R=\\rho \\cdotp \\frac{l}{S}", category: "Prąd elektryczny"},
+  {name: "prawo Ohma", formula: 'i=u/r', latex: "I=\\frac U R", category: "Prąd elektryczny"},
+  {name: "napięcie ogniwa", formula: 'u=e-(i*r)', latex: "U=\\varepsilon - I \\cdotp R_W", category: "Prąd elektryczny"},
+
 ];
